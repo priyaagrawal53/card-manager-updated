@@ -206,25 +206,40 @@
 // window.onload = displayCards;
 console.log("Working again");
 
-let allCardGlobal = JSON.parse(localStorage.getItem("cards")) || [];
-
 document.addEventListener("DOMContentLoaded", () => {
     listallcards();
+    
 });
+
+function showRequiredCard(){
+    console.log("showing required card");
+
+    let requiredCard= JSON.parse(localStorage.requiredCard);
+    console.log(requiredCard);
+
+    document.querySelector(".number").innerText = requiredCard.number;
+    document.querySelector(".date").innerText = requiredCard.exp;
+    document.querySelector(".signature i").innerText = requiredCard.cvv;
+    document.querySelector(".name").innerText = requiredCard.cardname;
+}
 
 async function set(card) {
     console.log("Event listener working for", card.number);
+    let myCard= {"number": card.number, "exp": card.exp, "cvv": card.cvv, "cardname": card.cardname }
+    localStorage.setItem("requiredCard", JSON.stringify(myCard));
+    let requiredCard = JSON.parse(localStorage.getItem("requiredCard")) || [];
+    console.log(requiredCard)
 
-    document.querySelector(".number").innerText = card.number;
-    document.querySelector(".exp").innerText = card.exp;
-    document.querySelector(".cvv").innerText = card.cvv;
-    document.querySelector(".cardname").innerText = card.cardname;
-
-    setTimeout(() => {
-        window.open("index.html", "_blank");
-    }, 100);
 }
 
+// let viewSaved= document.querySelector("#viewsaved")
+// viewSaved.addEventListener(("click", ()=>{
+//     listallcards();
+//    console.log("event listener")
+//     console.log(viewSaved.querySelectorAll(".card"));
+
+    
+// }))
 function listallcards() {
     let allCards = JSON.parse(localStorage.getItem("cards")) || [];
     let listContainer = document.querySelector(".cardlist");
@@ -240,7 +255,8 @@ function listallcards() {
         listItem.id = `card-${card.number}`;
         listItem.textContent = card.number;
 
-        newdiv.addEventListener("click", () => set(card));
+        newdiv.addEventListener("click", () => {set(card)
+        });
         newdiv.addEventListener("click", () => {
             window.open("index.html")
         });
@@ -269,24 +285,36 @@ function takevalue() {
     listallcards();
 }
 
-function displayCards() {
+function deleteCard() {
+    let cardToBeDel = document.querySelector("#cc-delete").value;
     let allCards = JSON.parse(localStorage.getItem("cards")) || [];
-    let container = document.getElementById("card-container");
-    container.innerHTML = "";
 
-    allCards.forEach((card) => {
-        let cardElement = document.getElementById("div");
-        cardElement.innerHTML += `<li> ${card.number}</li>`;
-    });
+    let initialLength = allCards.length;
+    allCards = allCards.filter(card => card.number !== cardToBeDel);
+
+    if (allCards.length === initialLength) {
+        alert("Card not found!");
+    } else {
+        localStorage.setItem("cards", JSON.stringify(allCards));
+        alert("Card deleted successfully!");
+        displayCards();
+    }
+}
+function confirmdelete()
+{
+    let cardToBeDel = document.querySelector("#cc-delete").value;
+    let userResponse = confirm(`Are you sure you want to delete card number ${cardToBeDel}?`);
+
+    if (userResponse) {
+        deleteCard(cardToBeDel);  
+    }
+    else{
+        alert("deletion cancelled");
+    }
+   
+
 }
 
-function deleteCard(index) {
-    let allCards = JSON.parse(localStorage.getItem("cards")) || [];
-    allCards.splice(index, 1);
-    localStorage.setItem("cards", JSON.stringify(allCards));
 
-    alert("Card deleted successfully!");
-    displayCards();
-}
 
-window.onload = displayCards;
+
