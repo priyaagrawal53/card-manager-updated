@@ -1,0 +1,172 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Background */
+body {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card Container */
+.card {
+    background: rgba(255, 255, 255, 0.2); /* Frosted glass */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    width: 400px;
+    color: white;
+}
+
+/* Header */
+.card-header {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Form Fields */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #fff;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Input Focus */
+input:focus {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+/* Buttons */
+.button, .backbutton {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.button {
+    background: linear-gradient(135deg, #34d399, #059669);
+    color: white;
+    border: none;
+}
+
+.button:hover {
+    background: linear-gradient(135deg, #059669, #065f46);
+    transform: scale(1.05);
+}
+
+.backbutton {
+    background: rgba(255, 50, 50, 0.5);
+    color: white;
+    border: none;
+}
+
+.backbutton:hover {
+    background: rgba(255, 50, 50, 0.8);
+}
+
+/* Reset styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+}
+
+/* Main container */
+.listcards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Styling for the unordered list */
+.cardlist {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Card styling */
+.card {
+    background: rgba(255, 255, 255, 0.2); /* Light transparency */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform-origin: center;
+    backdrop-filter: blur(10px); /* Soft glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Soft border */
+}
+
+/* Hover effect */
+.card:hover {
+    transform: scale(1.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.4); /* Slightly brighter */
+    z-index: 10;
+}
+
+/* List item inside the card */
+.card li {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+
+
