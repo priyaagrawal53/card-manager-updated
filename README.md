@@ -1,3 +1,5 @@
+entry point= card.html
+
 focused on creating a user interface for viewing card in an efficient manner.
 main technologies- HTML CSS
 supporting technologies- javascript
